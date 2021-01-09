@@ -1,0 +1,57 @@
+---
+title: "Title goes here"
+author: |
+  | Maxwell B. Joseph
+  | @mxwlj
+date: "What's the occasion"
+output: 
+  beamer_presentation:
+    includes: 
+      in_header: "preamble.tex"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+##
+
+\textbf{\Huge Blah blah blah.}
+
+
+## Slide title\footnote[frame]{\tiny{Footnote goes here}}
+
+\def\layersep{2cm}
+
+
+\begin{center}
+\begin{tikzpicture}
+\node (states) [par] {States};
+\node (parameters) [par, left of=states, xshift=-2cm, yshift=2cm]{Parameters};
+\node (observations) [whitebox, right of=states, above of=states, xshift=2cm, yshift=1cm] {Observations};
+\draw [arrow] (states) -- (observations);
+\draw [arrow] (parameters) -- (observations);
+\draw [arrow] (parameters) -- (states);
+\end{tikzpicture}
+\end{center}
+
+
+## Another title
+
+\begin{center}
+\begin{tikzpicture}
+\node (process) [par] {Occupancy state $z$};
+\node (data) [whitebox, right of=process, above of=process, xshift=2cm, yshift=1cm] {Detection data $y$};
+\node (p) [par, left of=process, xshift=-2.5cm, yshift=2cm]{$p$};
+\node (psi) [par, left of=process, xshift=-2.5cm]{$\psi$};
+\draw [arrow] (p) -- (data);
+\draw [arrow] (process) -- (data);
+\draw [arrow] (psi) -- (process);
+\end{tikzpicture}
+\end{center}
+
+$$y \sim \text{Bernoulli}(z \times p)$$
+
+$$z \sim \text{Bernoulli}(\psi)$$
